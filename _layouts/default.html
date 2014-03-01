@@ -1,44 +1,89 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
 
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
+	Design by Free CSS Templates
+	http://www.freecsstemplates.org
+	Released for free under a Creative Commons Attribution License
 
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
+	Name       : Coffeelike
+	Version    : 1.0
+	Released   : 20130222
 
-    </head>
-    <body>
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>{{ page.title }}</title>
+	<link href="http://fonts.googleapis.com/css?family=Arvo" rel="stylesheet" type="text/css" />
+	<link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-            <a class="extra" href="/">home</a>
-          </div>
+	<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-35750962-1']);
+	_gaq.push(['_trackPageview']);
 
-          {{ content }}
-
-          <div class="footer">
-            <div class="contact">
-              <p>
-                Your Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
-
-    </body>
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	</script>
+</head>
+<body>
+	<div id="bg">
+		<div id="outer">
+			<div id="header">
+				<div id="logo">
+					<h1>
+						<a href="/">Camille Maumet</a>
+					</h1>
+				</div>
+				<div id="nav">
+					<ul>
+						<li class="first active">
+							<a href="/">Home</a>
+						</li>
+					<!--<li>
+						<a href="projects.html">Projects</a>
+					</li>-->
+					<li>
+						<a href="communications.html">Talks and posters</a>
+					</li>
+					<li>
+						<a href="publications.html">Publications</a>
+					</li>
+					<li>
+						<a href="cv.html">CV</a>
+					</li>
+				</ul>
+				<br class="clear" />
+			</div>
+		</div>
+		<div id="main">
+			<div id="sidebar">
+				<h3>
+					Camille Maumet
+				</h3>
+				<p>
+					I am a <b>Posdoctoral research fellow</b> in informatics for neuroimaging meta- analysis at the University of Warwick, United-Kingdom. <!--I am interested in medical image processing in particular in the analysis of brain function.-->
+				</p>
+				<hr/>
+				<p>contact@camillemaumet.com</p>	
+			</div>
+			<div id="content">
+				{{ content }}
+				<br class="clear" />
+			</div>
+			<br class="clear" />
+		</div>
+	</div>
+	<div id="copyright">
+		&copy; camillemaumet.com | Design by <a href="http://www.freecsstemplates.org/">FCT</a>
+	</div>
+</div>
+</body>
 </html>
