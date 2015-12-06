@@ -2,9 +2,9 @@ import urllib2
 import re
 
 # Read publication list from hal
-response = urllib2.urlopen('http://haltools.inria.fr/Public/afficheRequete\
-Publi.php?auteur_exp=camille,maumet&CB_ref_biblio=oui&langue=Anglais&tri_exp=\
-annee_publi&tri_exp2=typdoc&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff')
+response = urllib2.urlopen('http://haltools.archives-ouvertes.fr/Public/affich\
+eRequetePubli.php?auteur_exp=camille,maumet&CB_ref_biblio=oui&langue=Anglais&t\
+ri_exp=annee_publi&tri_exp2=typdoc&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff')
 html = response.read()
 
 with open('include/publications_head.html', 'r') as f:
