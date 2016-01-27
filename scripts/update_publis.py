@@ -9,7 +9,7 @@ html = response.read()
 
 with open('include/publications_head.html', 'r') as f:
     head = f.read()
-with open('include/publications_bottom.html', 'r') as f:
+with open('include/publications_foot.html', 'r') as f:
     bottom = f.read()
 
 found = re.search(r'<body>(.*)</body>', html, re.DOTALL)
@@ -31,4 +31,23 @@ publis = publis.replace("Camille Maumet", "<u>Camille Maumet</u>")
 publis = unicode(publis, "utf-8")
 
 with open('../publications.html', 'w') as f:
+    f.write((head+publis+bottom).encode('ascii', 'xmlcharrefreplace'))
+
+# Two last publications
+response = urllib2.urlopen('http://haltools.archives-ouvertes.fr/Public/affich\
+eRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=2&CB_ref_biblio=oui&lang\
+ue=Anglais&tri_exp=annee_publi&ordre_aff=TA&Fen=Aff')
+
+html = response.read()
+with open('include/index_head.html', 'r') as f:
+    head = f.read()
+with open('include/index_foot.html', 'r') as f:
+    bottom = f.read()
+found = re.search(r'<body>(.*)</body>', html, re.DOTALL)
+publis = found.group(0).replace("<body>", "").replace("</body>", "")
+
+publis = publis.replace("Camille Maumet", "<u>Camille Maumet</u>")
+publis = unicode(publis, "utf-8")
+
+with open('../index.html', 'w') as f:
     f.write((head+publis+bottom).encode('ascii', 'xmlcharrefreplace'))
