@@ -36,7 +36,7 @@ with open('../publications.html', 'w') as f:
 # Two last publications
 response = urllib2.urlopen('http://haltools.archives-ouvertes.fr/Public/affich\
 eRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=2&CB_ref_biblio=oui&lang\
-ue=Anglais&tri_exp=annee_publi&ordre_aff=TA&Fen=Aff')
+ue=Anglais&tri_exp=annee_publi&tri_exp2=date_publi&ordre_aff=TA&Fen=Aff')
 
 html = response.read()
 with open('include/index_head.html', 'r') as f:
