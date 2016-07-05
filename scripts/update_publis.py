@@ -27,6 +27,9 @@ publis = publis.replace("Krzysztof Gorgolewski, Tal Yarkoni, Satrajit Ghosh, \
 Russel Poldrack, Jean-Baptiste Poline, et al.", "Krzysztof Gorgolewski, \
 Tal Yarkoni, Satrajit Ghosh, Russel Poldrack, Jean-Baptiste Poline, Yannick \
 Schwartz, Thomas Nichols, Camille Maumet, Daniel Margulies")
+publis = publis.replace("Ruth Pauli, Alexander Bowring, Richard Reynolds, Gang\
+ Chen, Thomas Nichols, et al.", "Ruth Pauli, Alexander Bowring, Richard \
+Reynolds, Gang Chen, Thomas Nichols, Camille Maumet")
 
 publis = publis.replace(
     "Frontiers in Aging Neuroscience", "Frontiers in Neuroscience")
@@ -52,6 +55,10 @@ publis = found.group(0).replace("<body>", "").replace("</body>", "")
 
 publis = publis.replace(
     "Frontiers in Aging Neuroscience", "Frontiers in Neuroscience")
+
+publis = publis.replace("Ruth Pauli, Alexander Bowring, Richard Reynolds, Gang\
+ Chen, Thomas Nichols, et al.", "Ruth Pauli, Alexander Bowring, Richard \
+Reynolds, Gang Chen, Thomas Nichols, Camille Maumet")
 
 publis = publis.replace("Camille Maumet", "<u>Camille Maumet</u>")
 publis = unicode(publis, "utf-8")
