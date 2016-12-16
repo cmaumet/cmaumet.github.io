@@ -52,7 +52,7 @@ Jessica Turner, Thomas E. Nichols")
 publis = publis.replace(
     "Frontiers in Aging Neuroscience", "Frontiers in Neuroscience")
 
-publis = publis.replace("Camille Maumet", "<u>Camille Maumet</u>")
+publis = publis.replace("Camille Maumet", "<b>Camille Maumet</b>")
 publis = unicode(publis, "utf-8")
 
 with open('../publications.html', 'w') as f:
@@ -78,7 +78,7 @@ publis = publis.replace("Ruth Pauli, Alexander Bowring, Richard Reynolds, Gang\
  Chen, Thomas Nichols, et al.", "Ruth Pauli, Alexander Bowring, Richard \
 Reynolds, Gang Chen, Thomas Nichols, Camille Maumet")
 
-publis = publis.replace("Camille Maumet", "<u>Camille Maumet</u>")
+publis = publis.replace("Camille Maumet", "<b>Camille Maumet</b>")
 publis = unicode(publis, "utf-8")
 
 with open('../index.html', 'w') as f:
