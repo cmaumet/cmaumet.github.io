@@ -18,11 +18,13 @@ publis = found.group(0).replace("<body>", "").replace("</body>", "")
 publis = publis.replace("Krzysztof Gorgolewski, Gael Varoquaux, Gabriel Rivera\
 , Yannick Schwarz, Satrajit Ghosh, et al.", "Krzysztof Gorgolewski, Gael \
 Varoquaux, Gabriel Rivera, Yannick Schwartz, Satrajit Ghosh, Camille Maumet, \
-et al.")
+Vanessa Sochat, Thomas Nichols, Russell Poldrack, Jean-Baptiste Poline, Tal \
+Yarkoni, Daniel Margulies")
 publis = publis.replace("Krzysztof Gorgolewski, Gael Varoquaux, Gabriel Rivera\
 , Yannick Schwartz, Vanessa Sochat, et al.", "Krzysztof Gorgolewski, Gael \
 Varoquaux, Gabriel Rivera, Yannick Schwartz, Vanessa Sochat, Satrajit Ghosh\
-, Camille Maumet, et al.")
+, Camille Maumet, Thomas Nichols, Jean-Baptiste Poline, Tal Yarkoni, Daniel \
+Margulies, Russell Poldrack")
 publis = publis.replace("Krzysztof Gorgolewski, Tal Yarkoni, Satrajit Ghosh, \
 Russel Poldrack, Jean-Baptiste Poline, et al.", "Krzysztof Gorgolewski, \
 Tal Yarkoni, Satrajit Ghosh, Russel Poldrack, Jean-Baptiste Poline, Yannick \
