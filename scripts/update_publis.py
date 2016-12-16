@@ -15,24 +15,25 @@ with open('include/publications_foot.html', 'r') as f:
 found = re.search(r'<body>(.*)</body>', html, re.DOTALL)
 publis = found.group(0).replace("<body>", "").replace("</body>", "")
 
-publis = publis.replace("Krzysztof Gorgolewski, Gael Varoquaux, Gabriel Rivera\
+replacements = (
+    ("Krzysztof Gorgolewski, Gael Varoquaux, Gabriel Rivera\
 , Yannick Schwarz, Satrajit Ghosh, et al.", "Krzysztof Gorgolewski, Gael \
 Varoquaux, Gabriel Rivera, Yannick Schwartz, Satrajit Ghosh, Camille Maumet, \
 Vanessa Sochat, Thomas Nichols, Russell Poldrack, Jean-Baptiste Poline, Tal \
-Yarkoni, Daniel Margulies")
-publis = publis.replace("Krzysztof Gorgolewski, Gael Varoquaux, Gabriel Rivera\
+Yarkoni, Daniel Margulies"),
+    ("Krzysztof Gorgolewski, Gael Varoquaux, Gabriel Rivera\
 , Yannick Schwartz, Vanessa Sochat, et al.", "Krzysztof Gorgolewski, Gael \
 Varoquaux, Gabriel Rivera, Yannick Schwartz, Vanessa Sochat, Satrajit Ghosh\
 , Camille Maumet, Thomas Nichols, Jean-Baptiste Poline, Tal Yarkoni, Daniel \
-Margulies, Russell Poldrack")
-publis = publis.replace("Krzysztof Gorgolewski, Tal Yarkoni, Satrajit Ghosh, \
+Margulies, Russell Poldrack"),
+    ("Krzysztof Gorgolewski, Tal Yarkoni, Satrajit Ghosh, \
 Russel Poldrack, Jean-Baptiste Poline, et al.", "Krzysztof Gorgolewski, \
 Tal Yarkoni, Satrajit Ghosh, Russel Poldrack, Jean-Baptiste Poline, Yannick \
-Schwartz, Thomas Nichols, Camille Maumet, Daniel Margulies")
-publis = publis.replace("Ruth Pauli, Alexander Bowring, Richard Reynolds, Gang\
+Schwartz, Thomas Nichols, Camille Maumet, Daniel Margulies"),
+    ("Ruth Pauli, Alexander Bowring, Richard Reynolds, Gang\
  Chen, Thomas Nichols, et al.", "Ruth Pauli, Alexander Bowring, Richard \
-Reynolds, Gang Chen, Thomas Nichols, Camille Maumet")
-publis = publis.replace("Krzysztof Gorgolewski, Tibor Auer, Vince Calhoun,\
+Reynolds, Gang Chen, Thomas Nichols, Camille Maumet"),
+    ("Krzysztof Gorgolewski, Tibor Auer, Vince Calhoun,\
  Cameron Craddock, Samir Das, et al.", "Krzysztof Gorgolewski, Tibor Auer, \
 Vince Calhoun,\
  Cameron Craddock, Samir Das, Eugene Duff, Guillaume Flandin, Satrajit Ghosh,\
@@ -40,21 +41,23 @@ Vince Calhoun,\
  David Keator, Xiangrui Li, Zachary Michael, Camille Maumet, Nolan Nichols, \
  Thomas Nichols, John Pellman, Jean-Baptiste Poline, Ariel Rokem,\
  Gunnar Schaefer, Vanessa Sochat, William Triplett, Jessica Turner,\
- Gael Varoquaux, Russell Poldrack")
-publis = publis.replace("Ruth Pauli, Alexander Bowring, Richard Reynolds, \
+ Gael Varoquaux, Russell Poldrack"),
+    ("Ruth Pauli, Alexander Bowring, Richard Reynolds, \
 Gang Chen, Thomas E. Nichols, et al.", "Ruth Pauli, Alexander Bowring, Richard\
- Reynolds, Gang Chen, Thomas E. Nichols, Camille Maumet")
-publis = publis.replace("Camille Maumet, Tibor Auer, Alexander Bowring, Gang \
+ Reynolds, Gang Chen, Thomas E. Nichols, Camille Maumet"),
+    ("Camille Maumet, Tibor Auer, Alexander Bowring, Gang \
 Chen, Samir Das, et al.", "Camille Maumet, Tibor Auer, Alexander Bowring, Gang\
  Chen, Samir Das, Guillaume Flandin, Satrajit Ghosh, Tristan Glatard, \
 Krzysztof J. Gorgolewski, Karl G. Helmer, Mark Jenkinson, David B. Keator, B. \
 Nolan Nichols, Jean-Baptiste Poline, Richard Reynolds, Vanessa Sochat, \
-Jessica Turner, Thomas E. Nichols")
+Jessica Turner, Thomas E. Nichols"),
+    ("Frontiers in Aging Neuroscience", "Frontiers in Neuroscience"),
+    ("Camille Maumet", "<b>Camille Maumet</b>")
+)
 
-publis = publis.replace(
-    "Frontiers in Aging Neuroscience", "Frontiers in Neuroscience")
+for to_rep, rep in replacements:
+    publis = publis.replace(to_rep, rep)
 
-publis = publis.replace("Camille Maumet", "<b>Camille Maumet</b>")
 publis = unicode(publis, "utf-8")
 
 with open('../publications.html', 'w') as f:
@@ -73,14 +76,9 @@ with open('include/index_foot.html', 'r') as f:
 found = re.search(r'<body>(.*)</body>', html, re.DOTALL)
 publis = found.group(0).replace("<body>", "").replace("</body>", "")
 
-publis = publis.replace(
-    "Frontiers in Aging Neuroscience", "Frontiers in Neuroscience")
+for to_rep, rep in replacements:
+    publis = publis.replace(to_rep, rep)
 
-publis = publis.replace("Ruth Pauli, Alexander Bowring, Richard Reynolds, Gang\
- Chen, Thomas Nichols, et al.", "Ruth Pauli, Alexander Bowring, Richard \
-Reynolds, Gang Chen, Thomas Nichols, Camille Maumet")
-
-publis = publis.replace("Camille Maumet", "<b>Camille Maumet</b>")
 publis = unicode(publis, "utf-8")
 
 with open('../index.html', 'w') as f:
