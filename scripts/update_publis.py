@@ -31,14 +31,23 @@ publis = publis.replace("Ruth Pauli, Alexander Bowring, Richard Reynolds, Gang\
  Chen, Thomas Nichols, et al.", "Ruth Pauli, Alexander Bowring, Richard \
 Reynolds, Gang Chen, Thomas Nichols, Camille Maumet")
 publis = publis.replace("Krzysztof Gorgolewski, Tibor Auer, Vince Calhoun,\
- Cameron Craddock, Samir Das, et al.",
- "Krzysztof Gorgolewski, Tibor Auer, Vince Calhoun,\
+ Cameron Craddock, Samir Das, et al.", "Krzysztof Gorgolewski, Tibor Auer, \
+Vince Calhoun,\
  Cameron Craddock, Samir Das, Eugene Duff, Guillaume Flandin, Satrajit Ghosh,\
  Tristan Glatard, Yaroslav Halchenko, Daniel Handwerker, Michael Hanke,\
  David Keator, Xiangrui Li, Zachary Michael, Camille Maumet, Nolan Nichols, \
  Thomas Nichols, John Pellman, Jean-Baptiste Poline, Ariel Rokem,\
  Gunnar Schaefer, Vanessa Sochat, William Triplett, Jessica Turner,\
  Gael Varoquaux, Russell Poldrack")
+publis = publis.replace("Ruth Pauli, Alexander Bowring, Richard Reynolds, \
+Gang Chen, Thomas E. Nichols, et al.", "Ruth Pauli, Alexander Bowring, Richard\
+ Reynolds, Gang Chen, Thomas E. Nichols, Camille Maumet")
+publis = publis.replace("Camille Maumet, Tibor Auer, Alexander Bowring, Gang \
+Chen, Samir Das, et al.", "Camille Maumet, Tibor Auer, Alexander Bowring, Gang\
+ Chen, Samir Das, Guillaume Flandin, Satrajit Ghosh, Tristan Glatard, \
+Krzysztof J. Gorgolewski, Karl G. Helmer, Mark Jenkinson, David B. Keator, B. \
+Nolan Nichols, Jean-Baptiste Poline, Richard Reynolds, Vanessa Sochat, \
+Jessica Turner, Thomas E. Nichols")
 
 publis = publis.replace(
     "Frontiers in Aging Neuroscience", "Frontiers in Neuroscience")
