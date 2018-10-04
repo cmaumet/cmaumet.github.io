@@ -1,14 +1,17 @@
 import urllib2
 import re
+import os
+
+script_path = os.path.dirname(os.path.abspath(__file__))
 
 # Read publication list from hal
 hal_url = 'http://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&CB_ref_biblio=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=typdoc&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff&typdoc=(%27ART%27,%27COMM%27,%27PRESCONF%27,%27OUV%27,%27COUV%27,%27DOUV%27,%27PATENT%27,%27OTHER%27,%27UNDEFINED%27,%27REPORT%27,%27THESE%27,%27HDR%27,%27MEM%27,%27LECTURE%27,%27IMG%27,%27VIDEO%27,%27SON%27,%27MAP%27,%27MINUTES%27,%27NOTE%27,%27OTHERREPORT%27,%27SYNTHESE%27)&CB_DOI=oui'
 response = urllib2.urlopen(hal_url)
 html = response.read()
 
-with open('include/publications_head.html', 'r') as f:
+with open(os.path.join(script_path, 'include/publications_head.html'), 'r') as f:
     head = f.read()
-with open('include/publications_foot.html', 'r') as f:
+with open(os.path.join(script_path, 'include/publications_foot.html'), 'r') as f:
     bottom = f.read()
 
 found = re.search(r'<body>(.*)</body>', html, re.DOTALL)
@@ -59,7 +62,7 @@ for to_rep, rep in replacements:
 
 publis = unicode(publis, "utf-8")
 
-with open('../publications.html', 'w') as f:
+with open(os.path.join(script_path, '..', 'publications.html'), 'w') as f:
     f.write((head+publis+bottom).encode('ascii', 'xmlcharrefreplace'))
 
 # Two last publications
@@ -68,9 +71,9 @@ eRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=2&CB_ref_biblio=oui&lang\
 ue=Anglais&tri_exp=annee_publi&tri_exp2=date_publi&ordre_aff=TA&Fen=Aff')
 
 html = response.read()
-with open('include/index_head.html', 'r') as f:
+with open(os.path.join(script_path, 'include/index_head.html'), 'r') as f:
     head = f.read()
-with open('include/index_foot.html', 'r') as f:
+with open(os.path.join(script_path, 'include/index_foot.html'), 'r') as f:
     bottom = f.read()
 found = re.search(r'<body>(.*)</body>', html, re.DOTALL)
 publis = found.group(0).replace("<body>", "").replace("</body>", "")
@@ -80,5 +83,5 @@ for to_rep, rep in replacements:
 
 publis = unicode(publis, "utf-8")
 
-with open('../index.html', 'w') as f:
+with open(os.path.join(script_path, '../index.html'), 'w') as f:
     f.write((head+publis+bottom).encode('ascii', 'xmlcharrefreplace'))
