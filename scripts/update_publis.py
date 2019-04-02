@@ -68,7 +68,7 @@ with open(os.path.join(script_path, '..', 'publications.html'), 'wb') as f:
 response = urlopen('http://haltools.archives-ouvertes.fr/Public/affich\
 eRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=2&CB_ref_biblio=oui&lang\
 ue=Anglais&tri_exp=annee_publi&tri_exp2=date_publi&ordre_aff=TA&Fen=Aff\
-&invitedCommunication=Non')
+&invitedCommunication=Non&popularLevel=Non')
 
 html = response.read().decode("utf-8") 
 with open(os.path.join(script_path, 'include/index_head.html'), 'r') as f:
