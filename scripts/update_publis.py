@@ -65,7 +65,7 @@ with open(os.path.join(script_path, '..', 'publications.html'), 'wb') as f:
     f.write((head+publis+bottom).encode('ascii', 'xmlcharrefreplace'))
 
 # Two last publications
-response = urlopen('http://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=2&CB_ref_biblio=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=date_publi&ordre_aff=TA&Fen=Aff&invitedCommunication=Non&popularLevel=Non')
+response = urlopen('http://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=3&CB_ref_biblio=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=date_publi&ordre_aff=TA&Fen=Aff&invitedCommunication=Non&popularLevel=Non')
 
 html = response.read().decode("utf-8") 
 with open(os.path.join(script_path, 'include/index_head.html'), 'r') as f:
