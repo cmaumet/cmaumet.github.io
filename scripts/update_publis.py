@@ -6,7 +6,10 @@ script_path = os.path.dirname(os.path.abspath(__file__))
 
 # Read publication list from hal
 hal_url = 'http://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&CB_auteur=oui&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=typdoc&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff&typdoc=(%27ART%27,%27COMM%27,%27OUV%27,%27COUV%27,%27DOUV%27,%27PATENT%27,%27OTHER%27,%27UNDEFINED%27,%27REPORT%27,%27THESE%27,%27HDR%27,%27MEM%27,%27IMG%27,%27VIDEO%27,%27SON%27,%27MAP%27,%27MINUTES%27,%27NOTE%27,%27OTHERREPORT%27,%27SYNTHESE%27)&CB_DOI=oui&invitedCommunication=Non&popularLevel=Non'
+# Read talk list from hal
+talk_url = 'https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&CB_auteur=oui&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=typdoc&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff&typdoc=(%27PRESCONF%27)&CB_vignette=oui'
 
+# Publication page
 response = urlopen(hal_url)
 html = response.read().decode("utf-8") 
 
@@ -20,13 +23,29 @@ publis = found.group(0).replace("<body>", "").replace("</body>", "")
 
 replacements = (
     ("Camille Maumet", "<b>Camille Maumet</b>"),
-)
+)?
 
 for to_rep, rep in replacements:
     publis = publis.replace(to_rep, rep)
 
 with open(os.path.join(script_path, '..', 'publications.html'), 'wb') as f:
     f.write((head+publis+bottom).encode('ascii', 'xmlcharrefreplace'))
+
+# Talk page
+response = urlopen(talk_url)
+html = response.read().decode("utf-8") 
+
+with open(os.path.join(script_path, 'include/talks_head.html'), 'r') as f:
+    head = f.read()
+with open(os.path.join(script_path, 'include/publications_foot.html'), 'r') as f:
+    bottom = f.read()
+
+found = re.search(r'<body>(.*)</body>', html, re.DOTALL)
+publis = found.group(0).replace("<body>", "").replace("</body>", "")
+
+with open(os.path.join(script_path, '..', 'talks.html'), 'wb') as f:
+    f.write((head+publis+bottom).encode('ascii', 'xmlcharrefreplace'))
+
 
 # Two last publications
 response = urlopen('https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=3&CB_ref_biblio=oui&langue=Anglais&tri_exp=date_publi&ordre_aff=TA&Fen=Aff&invitedCommunication=Non&popularLevel=Non&typdoc=(%27ART%27,%27COMM%27,%27OUV%27,%27COUV%27,%27DOUV%27,%27PATENT%27,%27OTHER%27,%27UNDEFINED%27,%27REPORT%27,%27THESE%27,%27HDR%27,%27MEM%27,%27IMG%27,%27VIDEO%27,%27SON%27,%27MAP%27,%27MINUTES%27,%27NOTE%27,%27OTHERREPORT%27,%27SYNTHESE%27)')
