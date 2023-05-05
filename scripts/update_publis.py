@@ -7,7 +7,7 @@ script_path = os.path.dirname(os.path.abspath(__file__))
 # Read publication list from hal
 hal_url = 'http://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&CB_auteur=oui&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=typdoc&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff&typdoc=(%27ART%27,%27COMM%27,%27OUV%27,%27COUV%27,%27DOUV%27,%27PATENT%27,%27OTHER%27,%27UNDEFINED%27,%27REPORT%27,%27THESE%27,%27HDR%27,%27MEM%27,%27IMG%27,%27VIDEO%27,%27SON%27,%27MAP%27,%27MINUTES%27,%27NOTE%27,%27OTHERREPORT%27,%27SYNTHESE%27)&CB_DOI=oui&invitedCommunication=Non&popularLevel=Non'
 # Read talk list from hal
-talk_url = 'https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&CB_auteur=oui&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=typdoc&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff&typdoc=(%27PRESCONF%27)&CB_vignette=oui'
+talk_url = 'https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=typdoc&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff&typdoc=(%27PRESCONF%27)&CB_vignette=oui'
 
 # Publication page
 response = urlopen(hal_url)
@@ -23,7 +23,7 @@ publis = found.group(0).replace("<body>", "").replace("</body>", "")
 
 replacements = (
     ("Camille Maumet", "<b>Camille Maumet</b>"),
-)?
+)
 
 for to_rep, rep in replacements:
     publis = publis.replace(to_rep, rep)
@@ -41,10 +41,21 @@ with open(os.path.join(script_path, 'include/publications_foot.html'), 'r') as f
     bottom = f.read()
 
 found = re.search(r'<body>(.*)</body>', html, re.DOTALL)
-publis = found.group(0).replace("<body>", "").replace("</body>", "")
+talks = found.group(0).replace("<body>", "").replace("</body>", "")
+
+# todel = """<p class="SousRubrique">Documents associated with scientific events</p>"""
+
+todel = "Documents associated with scientific events"
+talks = talks.replace(todel, "")
+
+# Bigger thumbnails
+talks = talks.replace("little", "medium")
+talks = talks.replace("class=\"VignetteImg\"", "class=\"VignetteImg\" height=\"150\"")
+# talks = talks.replace("border=\"0\"", "border=\"1\"")
+
 
 with open(os.path.join(script_path, '..', 'talks.html'), 'wb') as f:
-    f.write((head+publis+bottom).encode('ascii', 'xmlcharrefreplace'))
+    f.write((head+talks+bottom).encode('ascii', 'xmlcharrefreplace'))
 
 
 # Two last publications

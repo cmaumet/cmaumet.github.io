@@ -125,7 +125,7 @@
     .NoticeResAvecVignette {
     	border: 0;
     	padding-bottom: 0.5em;
-    	min-height:100px;
+    	min-height:160px;
     }
 
     /*classe dt qui permmettent d'afficher les noms des champs */
@@ -160,7 +160,7 @@
     	font-size: 1em;
     }
     .ValeurResAvecVignette {
-    	margin-left:120px; 
+    	margin-left:220px; 
     	margin-bottom: 0em;
     	margin-top: 0em;
     	padding: 0em;
@@ -176,10 +176,14 @@
     /* affichage des vignettes*/
     .Vignette {
       float: left;
-      clear:left;
+/*      clear:left;*/
       padding-right:0em;
       margin-left:0.5em;
       }
+
+    .Vignette img{
+      border: 1px solid #000;
+    }
 
       /*affichage des fichiers joints*/
       .Fichier_joint{
