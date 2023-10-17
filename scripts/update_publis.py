@@ -85,8 +85,8 @@ with open(os.path.join(script_path, '..', 'mediation.html'), 'wb') as f:
 
 
 # Two last publications and talks
-response = urlopen('https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=2&CB_ref_biblio=oui&langue=Anglais&tri_exp=date_publi&ordre_aff=TA&Fen=Aff&invitedCommunication=Non&popularLevel=Non&typdoc=(%27ART%27,%27COMM%27,%27OUV%27,%27COUV%27,%27DOUV%27,%27PATENT%27,%27OTHER%27,%27UNDEFINED%27,%27REPORT%27,%27THESE%27,%27HDR%27,%27MEM%27,%27IMG%27,%27VIDEO%27,%27SON%27,%27MAP%27,%27MINUTES%27,%27NOTE%27,%27OTHERREPORT%27,%27SYNTHESE%27)')
-res_talks = urlopen('https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=2&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=date_publi&ordre_aff=TA&Fen=Aff&popularLevel=Non&typdoc=(%27PRESCONF%27)&popularLevel=Non&CB_vignette=oui')
+response = urlopen('https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=5&CB_ref_biblio=oui&langue=Anglais&tri_exp=date_publi&ordre_aff=TA&Fen=Aff&invitedCommunication=Non&popularLevel=Non&typdoc=(%27ART%27,%27COMM%27,%27OUV%27,%27COUV%27,%27DOUV%27,%27PATENT%27,%27OTHER%27,%27UNDEFINED%27,%27REPORT%27,%27THESE%27,%27HDR%27,%27MEM%27,%27IMG%27,%27VIDEO%27,%27SON%27,%27MAP%27,%27MINUTES%27,%27NOTE%27,%27OTHERREPORT%27,%27SYNTHESE%27)')
+res_talks = urlopen('https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&NbAffiche=3&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=date_publi&ordre_aff=TA&Fen=Aff&popularLevel=Non&typdoc=(%27PRESCONF%27)&popularLevel=Non&CB_vignette=oui')
 
 html_publi = response.read().decode("utf-8") 
 html_talk = res_talks.read().decode("utf-8") 
@@ -154,4 +154,4 @@ for to_rep, rep in replacements:
     publis = publis.replace(to_rep, rep)
 
 with open(os.path.join(script_path, '../index.html'), 'wb') as f:
-    f.write((head+publis+title_talk+talks+bottom).encode('ascii', 'xmlcharrefreplace'))
+    f.write((head+talks+title_talk+publis+bottom).encode('ascii', 'xmlcharrefreplace'))
