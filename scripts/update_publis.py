@@ -12,6 +12,8 @@ talk_url = 'https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php
 outreach_url = 'https://haltools.archives-ouvertes.fr/Public/afficheRequetePubli.php?auteur_exp=camille,maumet&CB_titre=oui&CB_article=oui&langue=Anglais&tri_exp=annee_publi&tri_exp2=typdoc&tri_exp3=date_publi&ordre_aff=TA&Fen=Aff&typdoc=(%27PRESCONF%27)&popularLevel=Oui&CB_vignette=oui'
 
 
+# http://api.archives-ouvertes.fr/search/?q=*:*&fq=docType_s:(PRESCONF)&fq=authIdHal_s:cmaumet&fq=inria_presConfType_t:%22presentation%22&wt=json
+
 # Publication page
 response = urlopen(hal_url)
 html = response.read().decode("utf-8") 
