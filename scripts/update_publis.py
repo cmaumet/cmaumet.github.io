@@ -61,7 +61,7 @@ talks = talks.replace(todel, "")
 
 # Bigger thumbnails
 talks = talks.replace("little", "medium")
-talks = talks.replace("class=\"VignetteImg\"", "class=\"VignetteImg\" width=\"200\"")
+talks = talks.replace("class=\"VignetteImg\"", "class=\"VignetteImg\" width=\"200\" height=\"130\"")
 # talks = talks.replace("border=\"0\"", "border=\"1\"")
 
 with open(os.path.join(script_path, '..', 'talks.html'), 'wb') as f:
@@ -85,7 +85,7 @@ outreach = outreach.replace(todel, "")
 
 # Bigger thumbnails
 outreach = outreach.replace("little", "medium")
-outreach = outreach.replace("class=\"VignetteImg\"", "class=\"VignetteImg\" height=\"150\"")
+outreach = outreach.replace("class=\"VignetteImg\"", "class=\"VignetteImg\" width=\"200\" height=\"130\"")
 # talks = talks.replace("border=\"0\"", "border=\"1\"")
 
 with open(os.path.join(script_path, '..', 'mediation.html'), 'wb') as f:
