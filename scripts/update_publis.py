@@ -36,6 +36,8 @@ replacements = (
     ("Camille Maumet", "<b>Camille Maumet</b>"),
 )
 
+
+
 for to_rep, rep in replacements:
     publis = publis.replace(to_rep, rep)
 
@@ -53,6 +55,13 @@ with open(os.path.join(script_path, 'include/publications_foot.html'), 'r') as f
 
 found = re.search(r'<body>(.*)</body>', html, re.DOTALL)
 talks = found.group(0).replace("<body>", "").replace("</body>", "")
+
+replacements_talks = (
+    ("https://youtu.be/WQf_GMB-ckY?si=yDtu1kKPc8DhALXZ", "<a href=\"https://youtu.be/WQf_GMB-ckY?si=yDtu1kKPc8DhALXZ\">Video</a>"),
+)
+
+for to_rep, rep in replacements_talks:
+    talks = talks.replace(to_rep, rep)
 
 # todel = """<p class="SousRubrique">Documents associated with scientific events</p>"""
 
