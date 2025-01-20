@@ -111,6 +111,10 @@ res_talks = urlopen('https://haltools.archives-ouvertes.fr/Public/afficheRequete
 html_publi = response.read().decode("utf-8") 
 html_preprint = res_preprints.read().decode("utf-8") 
 html_talk = res_talks.read().decode("utf-8") 
+
+for to_rep, rep in replacements_talks:
+    html_talk = html_talk.replace(to_rep, rep)
+
 with open(os.path.join(script_path, 'include/index_head.html'), 'r') as f:
     head = f.read()
 with open(os.path.join(script_path, 'include/index_title_publi.html'), 'r') as f:
