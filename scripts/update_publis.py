@@ -33,13 +33,35 @@ found = re.search(r'<body>(.*)</body>', html, re.DOTALL)
 publis = found.group(0).replace("<body>", "").replace("</body>", "")
 
 replacements = (
-    ("Camille Maumet", "<b>Camille Maumet</b>"),
+    ("Elodie Germani, Xavier Rolland, Pierre Maurel, Camille Maumet",
+     "Elodie Germani+, Xavier Rolland+, Pierre Maurel*, Camille Maumet*"),
+    ("Jeremy Lefort-Besnard, Thomas Nichols, Camille Maumet",
+     "Jeremy Lefort-Besnard, Thomas Nichols*, Camille Maumet*"),
+    ("Elodie Germani, Elisa Fromont, Camille Maumet",
+     "Elodie Germani, Elisa Fromont*, Camille Maumet*"),
+    ("Elodie Germani, Camille Maumet, Elisa Fromont",
+     "Elodie Germani, Camille Maumet*, Elisa Fromont*"),
+    ("Elodie Germani, Elisa Fromont, Pierre Maurel, Camille Maumet",
+     "Elodie Germani, Elisa Fromont, Pierre Maurel*, Camille Maumet*"),
+    ("Aya Kabbara, Nina Forde, Camille Maumet, Mahmoud Hassan",
+     "Aya Kabbara, Nina Forde, Camille Maumet*, Mahmoud Hassan*"),
+    ("Alexander Bowring, Thomas Nichols, Camille Maumet",
+     "Alexander Bowring, Thomas Nichols*, Camille Maumet*"),
+    ("Jeremy Lefort-Besnard, Thomas E. Nichols, Camille Maumet",
+    "Jeremy Lefort-Besnard, Thomas E. Nichols*, Camille Maumet*"),
+    ("Jeremy Lefort-Besnard, Thomas E Nichols​, Camille Maumet",
+     "Jeremy Lefort-Besnard, Thomas E Nichols*, Camille Maumet*"),
+    ("Elizabeth Levitis, Cassandra Gould van Praag",
+     "Elizabeth Levitis*, Cassandra Gould van Praag*"),
+    ("Rémi Gau, Stephanie Noble, Katja Heuer, Katherine Bottenhorn, Isil Bilgin, Yu-Fang Yang, Julia Huntenburg, Johanna M.M. Bayer, Richard A.I. Bethlehem",
+        "Rémi Gau*, Stephanie Noble*, Katja Heuer*, Katherine Bottenhorn*, Isil Bilgin*, Yu-Fang Yang*, Julia Huntenburg*, Johanna M.M. Bayer*, Richard A.I. Bethlehem*")
 )
-
-
 
 for to_rep, rep in replacements:
     publis = publis.replace(to_rep, rep)
+
+# Bold name after all changes have been made in author lists
+publis = publis.replace("Camille Maumet", "<b>Camille Maumet</b>")
 
 with open(os.path.join(script_path, '..', 'publications.html'), 'wb') as f:
     f.write((head+publis+bottom).encode('ascii', 'xmlcharrefreplace'))
@@ -132,7 +154,8 @@ preprints = found_preprint.group(0).replace("<body>", "").replace("</body>", "")
 talks = found_talk.group(0).replace("<body>", "").replace("</body>", "")
 
 replacements = (
-    ("Camille Maumet", "<b>Camille Maumet</b>"),
+    ("Xavier Rolland",
+     "testtesttest"),
 )
 
 # replacements = (
@@ -182,6 +205,10 @@ replacements = (
 for to_rep, rep in replacements:
     publis = publis.replace(to_rep, rep)
     preprints = preprints.replace(to_rep, rep)
+
+# Bold name after all changes have been made in author lists
+publis = publis.replace("Camille Maumet", "<b>Camille Maumet</b>")
+preprints = preprints.replace("Camille Maumet", "<b>Camille Maumet</b>")
 
 with open(os.path.join(script_path, '../index.html'), 'wb') as f:
     f.write((head+talks+title_publis+publis+title_preprints+preprints+bottom).encode('ascii', 'xmlcharrefreplace'))
