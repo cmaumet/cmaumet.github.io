@@ -54,7 +54,9 @@ replacements = (
     ("Elizabeth Levitis, Cassandra Gould van Praag",
      "Elizabeth Levitis*, Cassandra Gould van Praag*"),
     ("Rémi Gau, Stephanie Noble, Katja Heuer, Katherine Bottenhorn, Isil Bilgin, Yu-Fang Yang, Julia Huntenburg, Johanna M.M. Bayer, Richard A.I. Bethlehem",
-        "Rémi Gau*, Stephanie Noble*, Katja Heuer*, Katherine Bottenhorn*, Isil Bilgin*, Yu-Fang Yang*, Julia Huntenburg*, Johanna M.M. Bayer*, Richard A.I. Bethlehem*")
+        "Rémi Gau*, Stephanie Noble*, Katja Heuer*, Katherine Bottenhorn*, Isil Bilgin*, Yu-Fang Yang*, Julia Huntenburg*, Johanna M.M. Bayer*, Richard A.I. Bethlehem*"),
+    ("Jérémy Lefort-Besnard, Alexandre Pron", "Jérémy Lefort-Besnard*, Alexandre Pron*")
+
 )
 
 for to_rep, rep in replacements:
@@ -153,10 +155,10 @@ publis = found_publi.group(0).replace("<body>", "").replace("</body>", "")
 preprints = found_preprint.group(0).replace("<body>", "").replace("</body>", "")
 talks = found_talk.group(0).replace("<body>", "").replace("</body>", "")
 
-replacements = (
-    ("Xavier Rolland",
-     "testtesttest"),
-)
+# replacements = (
+#     ("Xavier Rolland",
+#      "testtesttest"),
+# )
 
 # replacements = (
 #     ("Krzysztof Gorgolewski, Gael Varoquaux, Gabriel Rivera\
