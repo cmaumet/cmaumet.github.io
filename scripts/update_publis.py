@@ -55,8 +55,8 @@ replacements = (
      "Elizabeth Levitis*, Cassandra Gould van Praag*"),
     ("Rémi Gau, Stephanie Noble, Katja Heuer, Katherine Bottenhorn, Isil Bilgin, Yu-Fang Yang, Julia Huntenburg, Johanna M.M. Bayer, Richard A.I. Bethlehem",
         "Rémi Gau*, Stephanie Noble*, Katja Heuer*, Katherine Bottenhorn*, Isil Bilgin*, Yu-Fang Yang*, Julia Huntenburg*, Johanna M.M. Bayer*, Richard A.I. Bethlehem*"),
-    ("Jérémy Lefort-Besnard, Alexandre Pron", "Jérémy Lefort-Besnard*, Alexandre Pron*")
-
+    ("Jérémy Lefort-Besnard, Alexandre Pron", "Jérémy Lefort-Besnard*, Alexandre Pron*"),
+    ("https://haltools.archives-ouvertes.fr/images/", "/images/")
 )
 
 for to_rep, rep in replacements:
