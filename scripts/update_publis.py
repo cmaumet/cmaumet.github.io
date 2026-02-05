@@ -82,6 +82,7 @@ talks = found.group(0).replace("<body>", "").replace("</body>", "")
 
 replacements_talks = (
     ("https://youtu.be/WQf_GMB-ckY?si=yDtu1kKPc8DhALXZ", "<a href=\"https://youtu.be/WQf_GMB-ckY?si=yDtu1kKPc8DhALXZ\">Video</a>"),
+    ("https://haltools.archives-ouvertes.fr/images/", "/images/"),
 )
 
 for to_rep, rep in replacements_talks:
@@ -113,13 +114,19 @@ outreach = found.group(0).replace("<body>", "").replace("</body>", "")
 
 # todel = """<p class="SousRubrique">Documents associated with scientific events</p>"""
 
-todel = "Documents associated with scientific events"
-outreach = outreach.replace(todel, "")
-
 # Bigger thumbnails
 outreach = outreach.replace("little", "medium")
 outreach = outreach.replace("class=\"VignetteImg\"", "class=\"VignetteImg\" width=\"200\" height=\"130\"")
-# talks = talks.replace("border=\"0\"", "border=\"1\"")
+
+replacements_outreach = (
+    ("https://haltools.archives-ouvertes.fr/images/", "/images/"),
+)
+
+for to_rep, rep in replacements_outreach:
+    outreach = outreach.replace(to_rep, rep)
+
+todel = "Documents associated with scientific events"
+outreach = outreach.replace(todel, "")
 
 with open(os.path.join(script_path, '..', 'mediation.html'), 'wb') as f:
     f.write((head+outreach+"\n</div>").encode('ascii', 'xmlcharrefreplace'))
