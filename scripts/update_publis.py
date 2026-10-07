@@ -94,7 +94,8 @@ todel = "Documents associated with scientific events"
 talks = talks.replace(todel, "")
 
 # Bigger thumbnails
-talks = talks.replace("little", "medium")
+talks = talks.replace("thumb", "medium")
+talks = talks.replace("medium.ccsd.cnrs.fr", "thumb.ccsd.cnrs.fr")
 talks = talks.replace("class=\"VignetteImg\"", "class=\"VignetteImg\" width=\"200\" height=\"130\"")
 # talks = talks.replace("border=\"0\"", "border=\"1\"")
 
