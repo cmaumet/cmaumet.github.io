@@ -116,7 +116,8 @@ outreach = found.group(0).replace("<body>", "").replace("</body>", "")
 # todel = """<p class="SousRubrique">Documents associated with scientific events</p>"""
 
 # Bigger thumbnails
-outreach = outreach.replace("little", "medium")
+outreach = outreach.replace("thumb", "medium")
+outreach = outreach.replace("medium.ccsd.cnrs.fr", "thumb.ccsd.cnrs.fr")
 outreach = outreach.replace("class=\"VignetteImg\"", "class=\"VignetteImg\" width=\"200\" height=\"130\"")
 
 replacements_outreach = (
